@@ -4,6 +4,7 @@ This repository is custom dashboards & monitors template for Mackerel.
 Documentation for each template is located in its respective sub directory.
 
 - [example](./example/README.md)
+- [redis](./redis/README.md)
 
 ### Required permissions for API key
 

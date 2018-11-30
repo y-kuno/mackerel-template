@@ -1,0 +1,149 @@
+{
+  "title": "Redis",
+  "urlPath": "redis",
+  "memo": "redis dashboard",
+  "widgets": [
+    {
+      "type": "markdown",
+      "title": "",
+      "markdown": "# Redis",
+      "layout": {
+        "x": 0,
+        "y": 0,
+        "width": 4,
+        "height": 4
+      }
+    },
+    {
+      "type": "value",
+      "title": "Cache hit rate",
+      "metric": {
+        "type": "expression",
+        "expression": "scale(divide(sum(role(<service>:<role>,custom.redis.keyspace.keyspace_hits)),sum(group(role(<service>:<role>,custom.redis.keyspace.keyspace_hits),role(<service>:<role>,custom.redis.keyspace.keyspace_misses)))),100)"
+      },
+      "layout": {
+        "x": 4,
+        "y": 0,
+        "width": 4,
+        "height": 4
+      }
+    },
+    {
+      "type": "graph",
+      "title": "Redis commands",
+      "graph": {
+        "type": "role",
+        "roleFullname": "<service>:<role>",
+        "name": "custom.redis.queries.total_commands_processed"
+      },
+      "layout": {
+        "x": 8,
+        "y": 0,
+        "width": 8,
+        "height": 6
+      }
+    },
+    {
+      "type": "graph",
+      "title": "Idle rate of CPU core used",
+      "graph": {
+        "type": "role",
+        "roleFullname": "<service>:<role>",
+        "name": "custom.multicore.multicore.cpu.cpu0.idle"
+      },
+      "layout": {
+        "x": 16,
+        "y": 0,
+        "width": 8,
+        "height": 6
+      }
+    },
+    {
+      "type": "value",
+      "title": "Memory used rate",
+      "metric": {
+        "type": "expression",
+        "expression": "avg(role(<service>:<role>,custom.redis.capacity.percentage_of_memory))"
+      },
+      "layout": {
+        "x": 0,
+        "y": 4,
+        "width": 4,
+        "height": 4
+      }
+    },
+    {
+      "type": "value",
+      "title": "Keyspace keys",
+      "metric": {
+        "type": "expression",
+        "expression": "avg(role(<service>:<role>,custom.redis.keys.keys))"
+      },
+      "layout": {
+        "x": 4,
+        "y": 4,
+        "width": 4,
+        "height": 4
+      }
+    },
+    {
+      "type": "graph",
+      "title": "Redis cache hit rate",
+      "graph": {
+        "type": "expression",
+        "expression": "alias(scale(divide(sum(role(<service>:<role>,custom.redis.keyspace.keyspace_hits)),sum(group(role(<service>:<role>,custom.redis.keyspace.keyspace_hits),role(<service>:<role>,custom.redis.keyspace.keyspace_misses)))),100),hit rate)"
+      },
+      "layout": {
+        "x": 8,
+        "y": 6,
+        "width": 8,
+        "height": 6
+      }
+    },
+    {
+      "type": "graph",
+      "title": "Interface rxBytes",
+      "graph": {
+        "type": "role",
+        "roleFullname": "<service>:<role>",
+        "name": "interface.rxBytes"
+      },
+      "layout": {
+        "x": 16,
+        "y": 6,
+        "width": 8,
+        "height": 6
+      }
+    },
+    {
+      "type": "graph",
+      "title": "Redis memory used rate",
+      "graph": {
+        "type": "role",
+        "roleFullname": "<service>:<role>",
+        "name": "custom.redis.capacity.percentage_of_memory"
+      },
+      "layout": {
+        "x": 8,
+        "y": 12,
+        "width": 8,
+        "height": 6
+      }
+    },
+    {
+      "type": "graph",
+      "title": "Interface txBytes",
+      "graph": {
+        "type": "role",
+        "roleFullname": "<service>:<role>",
+        "name": "interface.txBytes"
+      },
+      "layout": {
+        "x": 16,
+        "y": 12,
+        "width": 8,
+        "height": 6
+      }
+    }
+  ]
+}
