@@ -1,0 +1,48 @@
+{
+    "monitors": [
+        {
+            "name": "connectivity",
+            "type": "connectivity"
+        },
+        {
+            "name": "Load Average 5",
+            "type": "host",
+            "metric": "loadavg5%",
+            "operator": ">",
+            "warning": 1.5,
+            "critical": 2,
+            "duration": 3,
+            "maxCheckAttempts": 1
+        },
+        {
+            "name": "CPU utilization",
+            "type": "host",
+            "metric": "cpu%",
+            "operator": ">",
+            "warning": 70,
+            "critical": 90,
+            "duration": 5,
+            "maxCheckAttempts": 1
+        },
+        {
+            "name": "Filesystem utilization",
+            "type": "host",
+            "metric": "disk%",
+            "operator": ">",
+            "warning": 85,
+            "critical": 90,
+            "duration": 5,
+            "maxCheckAttempts": 1
+        },
+        {
+            "name": "Memory utilization",
+            "type": "host",
+            "metric": "memory%",
+            "operator": ">",
+            "warning": 70,
+            "critical": 90,
+            "duration": 5,
+            "maxCheckAttempts": 1
+        }
+    ]
+}

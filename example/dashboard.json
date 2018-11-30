@@ -1,0 +1,127 @@
+{
+  "title": "Example",
+  "urlPath": "example",
+  "memo": "example dashboards",
+  "widgets": [
+    {
+      "type": "value",
+      "title": "loadavg1",
+      "metric": {
+        "type": "host",
+        "hostId": "<hostId>",
+        "name": "loadavg1"
+      },
+      "layout": {
+        "x": 0,
+        "y": 0,
+        "width": 6,
+        "height": 6
+      }
+    },
+    {
+      "type": "graph",
+      "title": "loadavg",
+      "graph": {
+        "type": "host",
+        "hostId": "<hostId>",
+        "name": "loadavg"
+      },
+      "layout": {
+        "x": 6,
+        "y": 0,
+        "width": 6,
+        "height": 6
+      }
+    },
+    {
+      "type": "graph",
+      "title": "disk",
+      "graph": {
+        "type": "host",
+        "hostId": "<hostId>",
+        "name": "disk"
+      },
+      "layout": {
+        "x": 12,
+        "y": 0,
+        "width": 6,
+        "height": 6
+      }
+    },
+    {
+      "type": "graph",
+      "title": "interface",
+      "graph": {
+        "type": "host",
+        "hostId": "<hostId>",
+        "name": "interface"
+      },
+      "layout": {
+        "x": 18,
+        "y": 0,
+        "width": 6,
+        "height": 6
+      }
+    },
+    {
+      "type": "value",
+      "title": "loadavg5",
+      "metric": {
+        "type": "host",
+        "hostId": "<hostId>",
+        "name": "loadavg5"
+      },
+      "layout": {
+        "x": 0,
+        "y": 6,
+        "width": 6,
+        "height": 6
+      }
+    },
+    {
+      "type": "graph",
+      "title": "cpu",
+      "graph": {
+        "type": "host",
+        "hostId": "<hostId>",
+        "name": "cpu"
+      },
+      "layout": {
+        "x": 6,
+        "y": 6,
+        "width": 6,
+        "height": 6
+      }
+    },
+    {
+      "type": "graph",
+      "title": "memory",
+      "graph": {
+        "type": "host",
+        "hostId": "<hostId>",
+        "name": "memory"
+      },
+      "layout": {
+        "x": 12,
+        "y": 6,
+        "width": 6,
+        "height": 6
+      }
+    },
+    {
+      "type": "graph",
+      "title": "filesystem",
+      "graph": {
+        "type": "host",
+        "hostId": "<hostId>",
+        "name": "filesystem"
+      },
+      "layout": {
+        "x": 18,
+        "y": 6,
+        "width": 6,
+        "height": 6
+      }
+    }
+  ]
+}
