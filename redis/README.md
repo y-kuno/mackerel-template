@@ -9,14 +9,18 @@ mackerel-plugin-redis
 mackerel-plugin-multicore
 ```
 
+Required permissions for API key.
+
+`Read` `Write`
+
+You can obtain the API key from the API tab on [your organization's page](https://mackerel.io/my?tab=apikeys).
+
 ## Dashboard
 
 update variable `<service>:<role>`  
 ex. `redis:redis`
 
 ### Creating Dashboard
-
-You can obtain the API key from the API tab on [your organization's page](https://mackerel.io/my?tab=apikeys).
 
 ```bash
 $ curl -X POST -H "Content-Type:application/json"  -H "X-Api-Key:<Api-Key>" https://api.mackerelio.com/api/v0/dashboards -d @dashboard.json
