@@ -9,12 +9,6 @@ mackerel-plugin-redis
 mackerel-plugin-multicore
 ```
 
-Required permissions for API key.
-
-`Read` `Write`
-
-You can obtain the API key from the API tab on [your organization's page](https://mackerel.io/my?tab=apikeys).
-
 ## Dashboard
 
 update variable `<service>:<role>`  
