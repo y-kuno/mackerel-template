@@ -1,0 +1,166 @@
+{
+  "title": "Nginx",
+  "urlPath": "nginx",
+  "memo": "nginx dashboard",
+  "widgets": [
+    {
+      "type": "value",
+      "title": "Overall request",
+      "metric": {
+        "type": "expression",
+        "expression": "sum(role(<service>:<role>,custom.nginx.requests.requests))"
+      },
+      "layout": {
+        "x": 0,
+        "y": 0,
+        "width": 6,
+        "height": 6
+      }
+    },
+    {
+      "type": "graph",
+      "title": "Requests",
+      "graph": {
+        "type": "role",
+        "roleFullname": "<service>:<role>",
+        "name": "custom.nginx.requests.requests"
+      },
+      "layout": {
+        "x": 6,
+        "y": 0,
+        "width": 6,
+        "height": 6
+      }
+    },
+    {
+      "type": "graph",
+      "title": "Active connections",
+      "graph": {
+        "type": "role",
+        "roleFullname": "<service>:<role>",
+        "name": "custom.nginx.connections.connections"
+      },
+      "layout": {
+        "x": 12,
+        "y": 0,
+        "width": 6,
+        "height": 6
+      }
+    },
+    {
+      "type": "graph",
+      "title": "Connections status reading",
+      "graph": {
+        "type": "role",
+        "roleFullname": "<service>:<role>",
+        "name": "custom.nginx.queue.reading"
+      },
+      "layout": {
+        "x": 18,
+        "y": 0,
+        "width": 6,
+        "height": 6
+      }
+    },
+    {
+      "type": "value",
+      "title": "Overall requests per second",
+      "metric": {
+        "type": "expression",
+        "expression": "scale(sum(role(<service>:<role>,custom.nginx.requests.requests)),1/60)"
+      },
+      "layout": {
+        "x": 0,
+        "y": 6,
+        "width": 6,
+        "height": 6
+      }
+    },
+    {
+      "type": "graph",
+      "title": "Overall requests",
+      "graph": {
+        "type": "expression",
+        "expression": "group(alias(sum(role(<service>:<role>,custom.nginx.requests.requests)),requests),alias(sum(timeShift(role(<service>:<role>,custom.nginx.requests.requests),1d)),1 day ago),alias(sum(timeShift(role(<service>:<role>,custom.nginx.requests.requests),1w)),1 week ago))"
+      },
+      "layout": {
+        "x": 6,
+        "y": 6,
+        "width": 6,
+        "height": 6
+      }
+    },
+    {
+      "type": "graph",
+      "title": "Overall connections",
+      "graph": {
+        "type": "expression",
+        "expression": "group(alias(sum(role(<service>:<role>,custom.nginx.connections.connections)),Active connections),alias(diff(sum(role(<service>:<role>,custom.nginx.requests.accepts)),sum(role(<service>:<role>,custom.nginx.requests.handled))),Dropped connections))"
+      },
+      "layout": {
+        "x": 12,
+        "y": 6,
+        "width": 6,
+        "height": 6
+      }
+    },
+    {
+      "type": "graph",
+      "title": "Connections status writing",
+      "graph": {
+        "type": "role",
+        "roleFullname": "<service>:<role>",
+        "name": "custom.nginx.queue.writing"
+      },
+      "layout": {
+        "x": 18,
+        "y": 6,
+        "width": 6,
+        "height": 6
+      }
+    },
+    {
+      "type": "value",
+      "title": "Overall active connections",
+      "metric": {
+        "type": "expression",
+        "expression": "sum(role(<service>:<role>,custom.nginx.connections.connections))"
+      },
+      "layout": {
+        "x": 0,
+        "y": 12,
+        "width": 6,
+        "height": 6
+      }
+    },
+    {
+      "type": "graph",
+      "title": "Overall requests per second",
+      "graph": {
+        "type": "expression",
+        "expression": "group(alias(scale(sum(role(<service>:<role>,custom.nginx.requests.requests)),1/60),requests),alias(scale(sum(timeShift(role(<service>:<role>,custom.nginx.requests.requests),1d)),1/60),1 day ago),alias(scale(sum(timeShift(role(<service>:<role>,custom.nginx.requests.requests),1w)),1/60),1 week ago))"
+      },
+      "layout": {
+        "x": 6,
+        "y": 12,
+        "width": 6,
+        "height": 6
+      }
+    },
+    {
+      "type": "graph",
+      "title": "Connections status waiting",
+      "graph": {
+        "type": "role",
+        "roleFullname": "<service>:<role>",
+        "name": "custom.nginx.queue.waiting"
+      },
+      "layout": {
+        "x": 18,
+        "y": 12,
+        "width": 6,
+        "height": 6
+      }
+    }
+  ]
+}

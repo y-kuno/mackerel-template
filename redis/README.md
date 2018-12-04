@@ -1,6 +1,6 @@
-# redis
+# Redis
 
-redis dashboard & monitors template for mackerel.
+Redis dashboard & monitors template for mackerel.
 
 ## Required
 

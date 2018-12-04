@@ -1,0 +1,184 @@
+{
+  "title": "MySQL",
+  "urlPath": "mysql",
+  "memo": "mysql dashboard",
+  "widgets": [
+    {
+      "type": "value",
+      "title": "Questions per seconds",
+      "metric": {
+        "type": "expression",
+        "expression": "scale(sum(role(<service>:<role>,custom.mysql.cmd.Questions)),1/60)"
+      },
+      "layout": {
+        "x": 0,
+        "y": 0,
+        "width": 6,
+        "height": 6
+      }
+    },
+    {
+      "type": "graph",
+      "title": "Overall Join/Scan",
+      "graph": {
+        "type": "expression",
+        "expression": "group(alias(stack(sum(role(<service>:<role>,custom.mysql.join.Select_full_join))),Select Full JOIN),alias(stack(sum(role(<service>:<role>,custom.mysql.join.Select_full_range_join))),Select Full Range JOIN),alias(stack(sum(role(<service>:<role>,custom.mysql.join.Select_range))),Select Range),alias(stack(sum(role(<service>:<role>,custom.mysql.join.Select_range_check))),Select Range Check),alias(stack(sum(role(<service>:<role>,custom.mysql.join.Select_scan))),Select SCAN))"
+      },
+      "layout": {
+        "x": 6,
+        "y": 0,
+        "width": 6,
+        "height": 6
+      }
+    },
+    {
+      "type": "graph",
+      "title": "Connections used rate",
+      "graph": {
+        "type": "role",
+        "roleFullname": "<service>:<role>",
+        "name": "custom.mysql.capacity.PercentageOfConnections"
+      },
+      "layout": {
+        "x": 12,
+        "y": 0,
+        "width": 6,
+        "height": 6
+      }
+    },
+    {
+      "type": "graph",
+      "title": "InnoDB buffer pool used rate",
+      "graph": {
+        "type": "role",
+        "roleFullname": "<service>:<role>",
+        "name": "custom.mysql.capacity.PercentageOfBufferPool"
+      },
+      "layout": {
+        "x": 18,
+        "y": 0,
+        "width": 6,
+        "height": 6
+      }
+    },
+    {
+      "type": "graph",
+      "title": "Questions",
+      "graph": {
+        "type": "role",
+        "roleFullname": "<service>:<role>",
+        "name": "custom.mysql.cmd.Questions"
+      },
+      "layout": {
+        "x": 0,
+        "y": 6,
+        "width": 6,
+        "height": 6
+      }
+    },
+    {
+      "type": "graph",
+      "title": "Slow queries",
+      "graph": {
+        "type": "role",
+        "roleFullname": "<service>:<role>",
+        "name": "custom.mysql.table_locks.Slow_queries"
+      },
+      "layout": {
+        "x": 6,
+        "y": 6,
+        "width": 6,
+        "height": 6
+      }
+    },
+    {
+      "type": "graph",
+      "title": "Threads connected",
+      "graph": {
+        "type": "role",
+        "roleFullname": "<service>:<role>",
+        "name": "custom.mysql.connections.Threads_connected"
+      },
+      "layout": {
+        "x": 12,
+        "y": 6,
+        "width": 6,
+        "height": 6
+      }
+    },
+    {
+      "type": "graph",
+      "title": "InnoDB rows read",
+      "graph": {
+        "type": "role",
+        "roleFullname": "<service>:<role>",
+        "name": "custom.mysql.innodb_rows.Innodb_rows_read"
+      },
+      "layout": {
+        "x": 18,
+        "y": 6,
+        "width": 6,
+        "height": 6
+      }
+    },
+    {
+      "type": "graph",
+      "title": "Overall commands",
+      "graph": {
+        "type": "expression",
+        "expression": "group(alias(stack(sum(role(<service>:<role>,custom.mysql.cmd.Com_insert))),Insert),alias(stack(sum(role(<service>:<role>,custom.mysql.cmd.Com_insert_select))),Insert Select),alias(stack(sum(role(<service>:<role>,custom.mysql.cmd.Com_select))),Select),alias(stack(sum(role(<service>:<role>,custom.mysql.cmd.Com_update))),Update),alias(stack(sum(role(<service>:<role>,custom.mysql.cmd.Com_update_multi))),Update Multi),alias(stack(sum(role(<service>:<role>,custom.mysql.cmd.Com_delete))),Delete),alias(stack(sum(role(<service>:<role>,custom.mysql.cmd.Com_delete_multi))),Delete Multi),alias(stack(sum(role(<service>:<role>,custom.mysql.cmd.Com_replace))),Replace),alias(stack(sum(role(<service>:<role>,custom.mysql.cmd.Com_replace_select))),Replace Select),alias(stack(sum(role(<service>:<role>,custom.mysql.cmd.Com_load))),Load),alias(stack(sum(role(<service>:<role>,custom.mysql.cmd.Com_set_option))),Set Option),alias(stack(sum(role(<service>:<role>,custom.mysql.cmd.Qcache_hits))),Query Cache Hits),alias(sum(role(<service>:<role>,custom.mysql.cmd.Questions)),Questions))"
+      },
+      "layout": {
+        "x": 0,
+        "y": 12,
+        "width": 6,
+        "height": 6
+      }
+    },
+    {
+      "type": "graph",
+      "title": "Seconds behind master",
+      "graph": {
+        "type": "role",
+        "roleFullname": "<service>:<role>",
+        "name": "custom.mysql.seconds_behind_master.Seconds_Behind_Master"
+      },
+      "layout": {
+        "x": 6,
+        "y": 12,
+        "width": 6,
+        "height": 6
+      }
+    },
+    {
+      "type": "graph",
+      "title": "Thread running",
+      "graph": {
+        "type": "role",
+        "roleFullname": "<service>:<role>",
+        "name": "custom.mysql.threads.Threads_running"
+      },
+      "layout": {
+        "x": 12,
+        "y": 12,
+        "width": 6,
+        "height": 6
+      }
+    },
+    {
+      "type": "graph",
+      "title": "InnoDB row lock waits",
+      "graph": {
+        "type": "role",
+        "roleFullname": "<service>:<role>",
+        "name": "custom.mysql.innodb_row_lock_waits.Innodb_row_lock_waits"
+      },
+      "layout": {
+        "x": 18,
+        "y": 12,
+        "width": 6,
+        "height": 6
+      }
+    }
+  ]
+}

@@ -1,14 +1,17 @@
-# Example
+# MySQL
 
-Example dashboard & monitors template for mackerel.
+MySQL dashboard & monitors template for mackerel.
 
 ## Required
 
 ```bash
-mackerel-plugin-example
+mackerel-plugin-mysql
 ```
 
 ## Dashboard
+
+Update variable `<service>:<role>` for dashboard.json.  
+ex. `mysql:mysql`
 
 ### Creating Dashboard
 
@@ -18,7 +21,7 @@ $ curl -X POST -H "Content-Type:application/json"  -H "X-Api-Key:<Api-Key>" http
 
 ### Screenshot
 
-![Screenshot](docs/images/dashboard.png)
+![Screenshot](./docs/images/dashboard.png)
 
 ## Monitors
 
@@ -29,7 +32,7 @@ The monitors use mkr command.
 To use mkr, first we will assign the API key to the environment variable.
 
 ```bash
-$ export MACKEREL_APIKEY=<API key>
+$ export MACKEREL_APIKEY=<API-Key>
 ```
 
 ### Register monitor configurations
